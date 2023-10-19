@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Objek 1
-  - Button
+  - Connection Point
+  - Cable
+  - Unmoveable
   layers:
   - Default
   - TransparentFX
@@ -45,4 +47,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 60788423
+    locked: 0
+  - name: Puzzle
+    uniqueID: 2825676773
+    locked: 0
+  - name: UI
+    uniqueID: 2932064153
     locked: 0

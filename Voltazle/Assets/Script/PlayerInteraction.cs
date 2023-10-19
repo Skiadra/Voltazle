@@ -6,35 +6,30 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public List<string> objectTags = new List<string>();
-    private bool isInRange = false;
-
+    public GameObject puzzle;
+    private bool interactable = false;
 
     private void OnTriggerEnter2D(Collider2D obj)
     {
         if (obj.CompareTag(objectTags[0]))
         {
             obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
-            isInRange = true;
+            interactable = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D obj)
     {
-        obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-        isInRange = false;
-    }
-
-    void Interact(){
-        InventoryManager.Instance.FuseCount--;
-    }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.E)){
-            if(isInRange = true && InventoryManager.Instance.FuseCount > 0){
-                Interact();
-                Debug.Log("Terpencet");
-            }
+        if (obj.CompareTag(objectTags[0]))
+        {
+            obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            interactable = false;
         }
-        Debug.Log(isInRange);
+    }
+
+    void Update()
+    {
+        if (interactable && Input.GetKeyDown(KeyCode.E))
+            puzzle.SetActive(true);
     }
 }
