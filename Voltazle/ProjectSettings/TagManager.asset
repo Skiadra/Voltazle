@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Objek 1
+  - Button
   layers:
   - Default
   - TransparentFX
