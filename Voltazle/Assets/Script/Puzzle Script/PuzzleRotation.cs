@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzleRotation : MonoBehaviour
 {
     public List<GameObject> points = new List<GameObject>();
+    public List<GameObject> connections = new List<GameObject>();
     SpriteRenderer sprite;
     public bool on = false;
 
@@ -17,32 +18,34 @@ public class PuzzleRotation : MonoBehaviour
 
     void Update()
     {
-        if (!gameObject.name.Contains("Start Point"))
-            on = false;
-        foreach (GameObject item in points)
+
+        if (points.Count == 0) return;
+
+        foreach (GameObject item in connections)
         {
-            if (item.GetComponent<ConnectPoint>().isOn)
+            if (gameObject.transform.parent.GetComponent<PuzzleHead>().connected.Contains(item))
             {
-                on = true; break;
+                return;
             }
-        }
-
-        if (points.Count == 0) on = true;
-
-        if (on)
-        {
-            sprite.color = new Color(1, 1, 1, 1);
-        }
-        else
-        {
-            sprite.color = new Color(.5f, .5f, .5f, 1);
         }
     }
 
     void OnMouseDown()
     {
         if (!gameObject.CompareTag("Unmoveable"))
-            transform.Rotate(new Vector3(0, 0, -90));
+        { transform.Rotate(new Vector3(0, 0, -90)); }
     }
 
+    public bool checkConnection()
+    {
+        if (connections.Count == 0) return false;
+        foreach (GameObject item in connections)
+        {
+            if (item.name.Contains("Start Point"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
