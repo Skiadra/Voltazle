@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
     // private int doubleJumpCount;
     [SerializeField] private float coyoteTime;
     private float jumpTimeCounter;
+    
 
     // [Header("Dashing")]
 
