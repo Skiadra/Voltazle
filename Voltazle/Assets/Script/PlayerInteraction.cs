@@ -29,7 +29,8 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        if (interactable && Input.GetKeyDown(KeyCode.E))
+        if (interactable && Input.GetKeyDown(KeyCode.E)){
             puzzle.SetActive(true);
+            Debug.Log("True");}
     }
 }
