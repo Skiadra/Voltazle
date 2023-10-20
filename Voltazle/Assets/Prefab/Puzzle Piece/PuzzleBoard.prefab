@@ -111,6 +111,7 @@ MonoBehaviour:
   connected:
   - {fileID: 2477642997623782331}
   connectedStart: []
+  maxConnectedValue: 100
 --- !u!1001 &784108729868749018
 PrefabInstance:
   m_ObjectHideFlags: 0

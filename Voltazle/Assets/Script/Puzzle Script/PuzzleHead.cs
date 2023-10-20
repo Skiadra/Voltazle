@@ -7,7 +7,9 @@ public class PuzzleHead : MonoBehaviour
 {
     public List<GameObject> connected = new List<GameObject>();
     public List<GameObject> connectedStart = new List<GameObject>();
+    public int maxConnectedValue;
     float time = 0;
+    float timing = 0;
 
 
     void Start()
@@ -17,10 +19,17 @@ public class PuzzleHead : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            gameObject.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    void FixedUpdate()
+    {
         time += Time.deltaTime;
-        if (time > .1)
+        if (time > .8)
         {
             connected.Clear();
             connected.AddRange(connectedStart);
@@ -42,14 +51,22 @@ public class PuzzleHead : MonoBehaviour
     {
         List<GameObject> temp = new List<GameObject>();
         bool end = false;
-        foreach (GameObject item in connected)
+        if (connected.Count() < maxConnectedValue)
         {
-            if (item.name.Contains("End")) end = true;
-            temp.AddRange(item.GetComponent<PuzzleRotation>().connections.Except(connected));
+            foreach (GameObject item in connected)
+            {
+                if (item.name.Contains("End")) end = true;
+                temp.AddRange(item.GetComponent<PuzzleRotation>().connections.Except(connected));
+            }
         }
         connected.AddRange(temp);
-        if (end)
+        if (end && connected.Count() <= maxConnectedValue)
+        {
+            GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().clear = true;
+            GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.
+            transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             Destroy(gameObject);
+        }
     }
 
 
