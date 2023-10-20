@@ -4622,6 +4622,7 @@ GameObject:
   - component: {fileID: 540940178}
   - component: {fileID: 540940180}
   - component: {fileID: 540940181}
+  - component: {fileID: 540940182}
   m_Layer: 0
   m_Name: Fuse Button
   m_TagString: Button
@@ -4754,6 +4755,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 3
+--- !u!114 &540940182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540940177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6feccc7ebdbd1f4ab1506aed92e7929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightDistance: 2
+  highlightMaterial: {fileID: 2100000, guid: 516579608abe5d046a9d52b1dc86d74e, type: 2}
 --- !u!1 &575087603
 GameObject:
   m_ObjectHideFlags: 0
@@ -11352,6 +11367,7 @@ GameObject:
   - component: {fileID: 1320725223}
   - component: {fileID: 1320725226}
   - component: {fileID: 1320725225}
+  - component: {fileID: 1320725227}
   m_Layer: 0
   m_Name: LiftButton
   m_TagString: Untagged
@@ -11484,6 +11500,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 4
+--- !u!114 &1320725227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320725222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6feccc7ebdbd1f4ab1506aed92e7929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightDistance: 2
+  highlightMaterial: {fileID: 2100000, guid: 516579608abe5d046a9d52b1dc86d74e, type: 2}
 --- !u!1 &1329152406
 GameObject:
   m_ObjectHideFlags: 0
@@ -11664,6 +11694,7 @@ GameObject:
   - component: {fileID: 1359620398}
   - component: {fileID: 1359620401}
   - component: {fileID: 1359620400}
+  - component: {fileID: 1359620402}
   m_Layer: 0
   m_Name: Fuse Box
   m_TagString: Untagged
@@ -11796,6 +11827,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3812637, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1359620402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359620397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6feccc7ebdbd1f4ab1506aed92e7929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightDistance: 2
+  highlightMaterial: {fileID: 2100000, guid: 516579608abe5d046a9d52b1dc86d74e, type: 2}
 --- !u!1 &1378518840
 GameObject:
   m_ObjectHideFlags: 0
