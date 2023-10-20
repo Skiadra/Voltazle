@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
     public float facing;
     private float acceleration;
     public float jumpForce;
+    public bool isUpLift = false;
     // public bool doubleJump;
     // private int doubleJumpCount;
     [SerializeField] private float coyoteTime;
@@ -135,11 +136,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        
         if (!inControl)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);//Kalo lagi buka menu ga bisa gerak
             return;
         }
+        
 
         // if (isDashing)
         // {
@@ -505,5 +508,10 @@ public class Movement : MonoBehaviour
         // transform.localScale.x * chargeRange / 2 * currentFacingTime * (1 - upSlash),
         // attackPoint.position.y + transform.localScale.y * chargeRange / 2 * upSlash),
         // new Vector2(transform.localScale.x * chargeRange * (1 - upSlash) + 1, 1 + (transform.localScale.y * chargeRange * upSlash)));
+    }
+
+    public void upLift(){
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3 (34.07f,-0.62f,0),20 * Time.deltaTime);
+        inControl = true;
     }
 }
