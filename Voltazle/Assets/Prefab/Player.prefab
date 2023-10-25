@@ -106,7 +106,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 14afe525766b0c34ba1787112edca29b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   normGravity: 10
   facing: 1
   jumpForce: 25
+  isUpLift: 0
   coyoteTime: 0.1
 --- !u!114 &1943557948843440505
 MonoBehaviour:
@@ -341,3 +342,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectTags: []
+  puzzle: {fileID: 0}
