@@ -21,7 +21,7 @@ public class PuzzleHead : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
             return;
         }
     }
@@ -65,7 +65,7 @@ public class PuzzleHead : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().clear = true;
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.
             transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
