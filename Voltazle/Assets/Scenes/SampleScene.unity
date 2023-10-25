@@ -1792,7 +1792,7 @@ PrefabInstance:
     - target: {fileID: 1943557948843440505, guid: c3063987375c34247b5612f27cd20182, type: 3}
       propertyPath: puzzle
       value: 
-      objectReference: {fileID: 702607194622751234, guid: e44e51ebce271b14b909186097d228ea, type: 3}
+      objectReference: {fileID: 5820733040397012307, guid: ac7f645491b5d6f4db9fa7f2ba105bd7, type: 3}
     - target: {fileID: 1943557948843440505, guid: c3063987375c34247b5612f27cd20182, type: 3}
       propertyPath: objectTags.Array.size
       value: 1
