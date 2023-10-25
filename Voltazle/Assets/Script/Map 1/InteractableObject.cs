@@ -24,6 +24,7 @@ public class InteractableObject : MonoBehaviour
         {
             isInRange = true;
             Debug.Log("Player is in range of " + gameObject.name);
+            
         }
     }
 

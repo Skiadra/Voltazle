@@ -44,15 +44,17 @@ public class GameManagerMap1 : MonoBehaviour
         if(fuseButton){
             Debug.Log("Naik Lift");
             move.isUpLift = true;
+            instance.StartCoroutine(infoFloating(instance.info[6]));
         }else if(!fuseButton){
             Debug.Log("Need Electricity");
             instance.StartCoroutine(infoFloating(instance.info[5]));
+            Tutorial.pressLift = true;
         }
     }
 
     public static IEnumerator infoFloating(GameObject info){
         info.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         info.SetActive(false);
     }
 
