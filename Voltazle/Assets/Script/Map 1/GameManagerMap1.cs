@@ -22,6 +22,7 @@ public class GameManagerMap1 : MonoBehaviour
         if(fuse > 0){
             fuseBox = true;
             instance.StartCoroutine(infoFloating(instance.info[0]));
+            instance.info[7].SetActive(true);
             Debug.Log("Fuse Terpasang");
         }else if(fuse < 1){
             Debug.Log("no fuse");
@@ -34,6 +35,7 @@ public class GameManagerMap1 : MonoBehaviour
             fuseButton = true;
             Debug.Log("Electricity On");
             instance.StartCoroutine(infoFloating(instance.info[3]));
+            instance.info[8].SetActive(true);
         }else if(!fuseBox){
             Debug.Log("Need Fuse");
             instance.StartCoroutine(infoFloating(instance.info[2]));
@@ -45,6 +47,8 @@ public class GameManagerMap1 : MonoBehaviour
             Debug.Log("Naik Lift");
             move.isUpLift = true;
             instance.StartCoroutine(infoFloating(instance.info[6]));
+            instance.info[9].SetActive(true);
+            instance.info[10].SetActive(true);
         }else if(!fuseButton){
             Debug.Log("Need Electricity");
             instance.StartCoroutine(infoFloating(instance.info[5]));
