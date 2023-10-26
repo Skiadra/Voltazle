@@ -35,7 +35,8 @@ public class Movement : MonoBehaviour
     // private int doubleJumpCount;
     [SerializeField] private float coyoteTime;
     private float jumpTimeCounter;
-    
+    public bool canJump = true;
+
 
     // [Header("Dashing")]
 
@@ -130,19 +131,20 @@ public class Movement : MonoBehaviour
         anima = GetComponent<Animator>();
         // doubleJumpCount = 0;
         inControl = true;
+        canJump = true;
         facing = -1;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
+
         if (!inControl)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);//Kalo lagi buka menu ga bisa gerak
             return;
         }
-        
+
 
         // if (isDashing)
         // {
@@ -250,7 +252,7 @@ public class Movement : MonoBehaviour
         // else doubleJumpCount = 1;
 
         //Jump
-        if (Input.GetKeyDown(KeyCode.Z) && jumpTimeCounter > 0f)
+        if (Input.GetKeyDown(KeyCode.W) && jumpTimeCounter > 0f && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpTimeCounter = 0;
@@ -380,7 +382,7 @@ public class Movement : MonoBehaviour
         anima.SetInteger("state", (int)state);
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.BoxCast(collide.bounds.center, collide.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
@@ -510,8 +512,9 @@ public class Movement : MonoBehaviour
         // new Vector2(transform.localScale.x * chargeRange * (1 - upSlash) + 1, 1 + (transform.localScale.y * chargeRange * upSlash)));
     }
 
-    public void upLift(){
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3 (34.07f,-0.62f,0),20 * Time.deltaTime);
+    public void upLift()
+    {
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, new Vector3(34.07f, -0.62f, 0), 20 * Time.deltaTime);
         inControl = true;
     }
 }
