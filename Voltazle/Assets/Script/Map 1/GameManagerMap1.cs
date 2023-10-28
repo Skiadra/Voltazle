@@ -74,8 +74,4 @@ public class GameManagerMap1 : MonoBehaviour
 
                 }
     }
-
-    void Update(){
-        
-    }
 }
