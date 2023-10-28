@@ -18,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Box
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 60788423
+    locked: 0
+  - name: InteractableShit
+    uniqueID: 1546778749
     locked: 0
   - name: Puzzle
     uniqueID: 2825676773
