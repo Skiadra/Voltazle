@@ -10,6 +10,7 @@ TagManager:
   - Unmoveable
   - Button
   - Ladder
+  - Gate
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Puzzle
     uniqueID: 2825676773
+    locked: 0
+  - name: Hitam
+    uniqueID: 465416251
     locked: 0
   - name: UI
     uniqueID: 2932064153
