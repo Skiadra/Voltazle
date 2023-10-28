@@ -17,7 +17,8 @@ public class PlayerInteraction : MonoBehaviour
         if (obj.CompareTag(objectTags[0]) && !clear)
         {
             interactableObject = obj.gameObject;
-            obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+            // obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+            obj.GetComponent<PuzzleObject>().onInteractable();
             interactable = true;
         }
     }
@@ -26,7 +27,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (obj.CompareTag(objectTags[0]))
         {
-            obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            // obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            obj.GetComponent<PuzzleObject>().notInteractable();
             interactable = false;
         }
     }
