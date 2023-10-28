@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private TrailRenderer tr;
 
     [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] private LayerMask boxes;
 
     //SaveLoadSystem
     // private bool saveLoadSystem = false;
@@ -85,7 +86,7 @@ public class Movement : MonoBehaviour
     // public bool isMelee = true;
 
 
-    private enum Status { idle, walking, running, jumping, falling, wallSliding }
+    private enum Status { idle, walking, running, jumping, falling, climbing, hanging, pushing }
     private Status state = Status.idle;
     private void Awake()
     {
@@ -132,7 +133,7 @@ public class Movement : MonoBehaviour
         // doubleJumpCount = 0;
         inControl = true;
         canJump = true;
-        facing = -1;
+        facing = 1;
     }
 
     // Update is called once per frame
@@ -338,13 +339,17 @@ public class Movement : MonoBehaviour
 
         if (dirX > 0)
         {
-            sprite.flipX = false;
+            sprite.flipX = true;
             state = Status.walking;
+            if (IsPushing())
+                state = Status.pushing;
         }
         else if (dirX < 0)
         {
             state = Status.walking;
-            sprite.flipX = true;
+            sprite.flipX = false;
+            if (IsPushing())
+                state = Status.pushing;
         }
         else
         {
@@ -358,6 +363,14 @@ public class Movement : MonoBehaviour
         else if (rb.velocity.y < -0.1 && IsGrounded() == false)
         {
             state = Status.falling;
+        }
+
+        if (GetComponent<LadderMovement>().isClimbing && !IsGrounded())
+        {
+            if (Input.GetAxisRaw("Vertical") != 0)
+                state = Status.climbing;
+            else
+                state = Status.hanging;
         }
 
         // if (isDashing)
@@ -385,6 +398,11 @@ public class Movement : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.BoxCast(collide.bounds.center, collide.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+    }
+
+    public bool IsPushing()
+    {
+        return Physics2D.BoxCast(collide.bounds.center, collide.bounds.size, 0f, Vector2.right * facing, 0.1f, boxes);
     }
 
     // private bool OnTheWall()
