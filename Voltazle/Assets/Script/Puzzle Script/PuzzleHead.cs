@@ -63,8 +63,9 @@ public class PuzzleHead : MonoBehaviour
         if (end && connected.Count() <= maxConnectedValue)
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().clear = true;
-            GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.
-            transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            // GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.
+            // transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.GetComponent<PuzzleObject>().notInteractable();
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
