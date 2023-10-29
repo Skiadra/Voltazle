@@ -12,9 +12,9 @@ public class PlayerInteraction : MonoBehaviour
     [NonSerialized] public GameObject interactableObject;
     [NonSerialized] public bool clear = false;
 
-    private void OnTriggerEnter2D(Collider2D obj)
+    private void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.CompareTag(objectTags[0]) && !clear)
+        if (obj.CompareTag(objectTags[0]) && !clear && test==null)
         {
             interactableObject = obj.gameObject;
             // obj.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
@@ -36,7 +36,8 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         if (interactable && Input.GetKeyDown(KeyCode.E) && test == null && !clear)
-        {
+        {   
+            interactableObject.GetComponent<PuzzleObject>().notInteractable();
             test = Instantiate(puzzle);
             test.transform.parent = GameObject.FindWithTag("MainCamera").transform;
             test.transform.localPosition = new Vector3(0, 0, 10);

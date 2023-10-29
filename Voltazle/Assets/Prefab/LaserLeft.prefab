@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983371240ce7fb9498cc1449bdd3f3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  teleportDistance: 25
+  moveSpeed: 30
+  teleportDistance: 15
   initialPosition: {x: 0, y: 0}
