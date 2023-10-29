@@ -14,7 +14,10 @@ TagManager:
   - Laser
   - Checkpoint
   - Puzzle
-  - Audio
+  - LaserTrap
+  - Box
+  - Railing
+  - Escape
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,13 @@ public class PuzzleHead : MonoBehaviour
     public int maxConnectedValue;
     float time = 0;
     float timing = 0;
+    private static GameObject escape;
 
 
     void Start()
     {
         connectedStart.AddRange(connected);
+        escape = GameObject.FindGameObjectWithTag("Escape");
     }
 
     void Update()
@@ -65,6 +67,8 @@ public class PuzzleHead : MonoBehaviour
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().clear = true;
             // GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.
             // transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            escape.GetComponent<Escape>().enabled = true;
+            escape.GetComponent<BoxCollider2D>().enabled = true;
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.GetComponent<PuzzleObject>().notInteractable();
             Destroy(gameObject.transform.parent.gameObject);
         }

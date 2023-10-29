@@ -49,24 +49,17 @@ public class InteractableObject2 : MonoBehaviour
             switch (interactionType)
             {
                 case InteractionType.FuseBox1:
-                    GameManagerMap2.isHaveFuse();
+                    GameManagerMap2.isHaveFuse1();
                     break;
                 case InteractionType.FuseBox2:
-                    GameManagerMap2.isHaveFuse();
+                    GameManagerMap2.isHaveFuse2();
                     break;
                 case InteractionType.FuseButton1:
                     GameManagerMap2.isFusePlaced1();
                     break;
-                // case InteractionType.FuseButton2:
-                //     GameManagerMap2.isFusePlaced2();
-                //     break;
-                case InteractionType.LiftButton:
-                    // Lakukan tindakan mengambil objek
-                    GameManagerMap2.isElectricityOn();
+                case InteractionType.FuseButton2:
+                    GameManagerMap2.isFusePlaced2();
                     break;
-                // case InteractionType.PuzzleButton:
-                //     GameManagerMap2.isPuzzleOn();
-                //     break;
                 case InteractionType.LaserButton:
                     GameManagerMap2.isLaserOn();
                     break;
