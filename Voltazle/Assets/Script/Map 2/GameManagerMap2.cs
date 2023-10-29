@@ -37,9 +37,11 @@ public class GameManagerMap2 : MonoBehaviour
     public static void isHaveFuse2(){
         if(fuse > 1){
             fuseBox2 = true;
+            instance.StartCoroutine(infoFloating(instance.info[8]));
             Debug.Log("Fuse 2 Terpasang");
         }else if(fuse < 2){
             Debug.Log("No Fuse 2");
+            instance.StartCoroutine(infoFloating(instance.info[7]));
         }
     }
 
@@ -61,15 +63,18 @@ public class GameManagerMap2 : MonoBehaviour
         if(fuseBox2){
             fuseButton2 = true;
             Debug.Log("Box Dropped");
+            instance.StartCoroutine(infoFloating(instance.info[9]));
             Destroy(boxRail);      
         }else if(!fuseBox2){
             Debug.Log("Need Fuse 2");
+            instance.StartCoroutine(infoFloating(instance.info[10]));
         }
     }
 
     public static void isLaserOn(){
         if(fuseButton){
             Debug.Log("Laser off");
+            instance.StartCoroutine(infoFloating(instance.info[11]));
             Destroy(instance.laser[0]);
             Destroy(instance.laser[1]);
         }else if(!fuseButton){
