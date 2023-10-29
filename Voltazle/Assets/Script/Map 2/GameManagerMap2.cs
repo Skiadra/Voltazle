@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Movement;
+using UnityEngine.SceneManagement;
 
 public class GameManagerMap2 : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManagerMap2 : MonoBehaviour
     private static GameManagerMap2 instance;
     private static GameObject gate;
     private static GameObject boxRail;
+    public GameObject objectToToggle;
+    private bool isObjectActive = false;
 
     [SerializeField] public List<GameObject> info = new List<GameObject>();
     [SerializeField] public List<GameObject> laser = new List<GameObject>();
@@ -103,4 +106,21 @@ public class GameManagerMap2 : MonoBehaviour
         gate = GameObject.FindGameObjectWithTag("Gate");
         boxRail = GameObject.FindGameObjectWithTag("Railing");
     }
+
+    public void Update(){
+        if (Input.GetKeyDown(KeyCode.Escape) && !isObjectActive)
+        {   objectToToggle.SetActive(true);
+            isObjectActive = true;
+            move.inControl = false;
+            
+        }else if(Input.GetKeyDown(KeyCode.Escape) && isObjectActive){
+            objectToToggle.SetActive(false);
+            isObjectActive = false;
+            move.inControl = true;
+        }
+    }
+    public void LoadMainMenu(){
+        SceneManager.LoadSceneAsync(0);
+    }
+
 }

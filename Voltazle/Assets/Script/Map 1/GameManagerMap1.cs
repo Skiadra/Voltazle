@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using static Movement;
 
 public class GameManagerMap1 : MonoBehaviour
@@ -12,6 +13,8 @@ public class GameManagerMap1 : MonoBehaviour
     public static bool fuseButton = false;
     public static bool clickedLiftButton = false;
     private static GameManagerMap1 instance;
+    public GameObject objectToToggle;
+    private bool isObjectActive = false;
     AudioManager audioManager;
 
     [SerializeField] public List<GameObject> info = new List<GameObject>();
@@ -82,4 +85,24 @@ public class GameManagerMap1 : MonoBehaviour
 
                 }
     }
+
+    void Update(){
+        
+        if (Input.GetKeyDown(KeyCode.Escape) && !isObjectActive)
+        {   objectToToggle.SetActive(true);
+            isObjectActive = true;
+            move.inControl = false;
+            
+        }else if(Input.GetKeyDown(KeyCode.Escape) && isObjectActive){
+            objectToToggle.SetActive(false);
+            isObjectActive = false;
+            move.inControl = true;
+        }
+    }
+
+    public void LoadMainMenu(){
+        SceneManager.LoadSceneAsync(0);
+    }
+
+
 }
