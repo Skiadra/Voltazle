@@ -12,12 +12,17 @@ public class PuzzleHead : MonoBehaviour
     float time = 0;
     float timing = 0;
     private static GameObject escape;
+    AudioManager audioManager;
 
 
     void Start()
     {
         connectedStart.AddRange(connected);
         escape = GameObject.FindGameObjectWithTag("Escape");
+    }
+
+    void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void Esx(){
@@ -70,6 +75,7 @@ public class PuzzleHead : MonoBehaviour
             // transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
             escape.GetComponent<Escape>().enabled = true;
             escape.GetComponent<BoxCollider2D>().enabled = true;
+            audioManager.PlaySFX(audioManager.FinishLift);
             GameObject.FindWithTag("Player").GetComponent<PlayerInteraction>().interactableObject.GetComponent<PuzzleObject>().notInteractable();
             Destroy(gameObject.transform.parent.gameObject);
         }
