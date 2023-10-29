@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private LayerMask boxes;
 
+    AudioManager audioManager;
+
     //SaveLoadSystem
     // private bool saveLoadSystem = false;
 
@@ -98,6 +100,8 @@ public class Movement : MonoBehaviour
         {
             move = this;
         }
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnEnable()
@@ -139,6 +143,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Animate();
 
         if (!inControl)
         {
@@ -257,7 +262,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpTimeCounter = 0;
-
+            audioManager.PlaySFX(audioManager.jump);
         }
 
         //Maximum falling speed
@@ -330,7 +335,7 @@ public class Movement : MonoBehaviour
 
         // Debug.Log(dashReset);
 
-        Animate();
+
     }
 
     private void Animate()
@@ -356,7 +361,7 @@ public class Movement : MonoBehaviour
             state = Status.idle;
         }
 
-        if (rb.velocity.y > 0.01)
+        if (rb.velocity.y > 0.01 && !IsGrounded())
         {
             state = Status.jumping;
         }
@@ -371,6 +376,11 @@ public class Movement : MonoBehaviour
                 state = Status.climbing;
             else
                 state = Status.hanging;
+        }
+
+        if (!inControl)
+        {
+            state = Status.idle;
         }
 
         // if (isDashing)
