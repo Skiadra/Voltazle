@@ -10,11 +10,15 @@ public class GameManagerMap1 : MonoBehaviour
     public static int fuse = 0;
     public static bool fuseBox = false;
     public static bool fuseButton = false;
+    public static bool clickedLiftButton = false;
     private static GameManagerMap1 instance;
+    AudioManager audioManager;
 
     [SerializeField] public List<GameObject> info = new List<GameObject>();
 
-
+    void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public static void ObtainFuse(){
         instance.StartCoroutine(infoFloating(instance.info[4]));
     }
@@ -46,15 +50,18 @@ public class GameManagerMap1 : MonoBehaviour
         if(fuseButton){
             Debug.Log("Naik Lift");
             move.isUpLift = true;
+            clickedLiftButton = true;
             instance.StartCoroutine(infoFloating(instance.info[6]));
             instance.info[9].SetActive(true);
             instance.info[10].SetActive(true);
+    
         }else if(!fuseButton){
             Debug.Log("Need Electricity");
             instance.StartCoroutine(infoFloating(instance.info[5]));
             Tutorial.pressLift = true;
         }
     }
+
 
     public static IEnumerator infoFloating(GameObject info){
         info.SetActive(true);
