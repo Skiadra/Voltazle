@@ -2,28 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserRight : MonoBehaviour
+public class LaserTrap : MonoBehaviour
 {
     public GameObject laserPrefab;
     public float spawnInterval = 5f;
-    public int maxLaserCount = 4; 
-    private int laserCount = 0; 
-
-    private void Start()
-    {
-        StartCoroutine(SpawnLaserRepeatedly());
-    }
 
     private IEnumerator SpawnLaserRepeatedly()
     {
-        while (laserCount < maxLaserCount)
+        while (true)
         {
             yield return new WaitForSeconds(spawnInterval);
-            if (laserCount < maxLaserCount)
-            {
-                Instantiate(laserPrefab, transform.position, Quaternion.identity);
-                laserCount++;
-            }
+            Instantiate(laserPrefab, transform.position, Quaternion.identity);
         }
+    }
+
+    public void LaserOn(){
+        StartCoroutine(SpawnLaserRepeatedly());
     }
 }
