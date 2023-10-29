@@ -16,6 +16,11 @@ public class InteractableObject : MonoBehaviour
 
     public InteractionType interactionType = InteractionType.None;
     private bool isInRange = false;
+    AudioManager audioManager;
+
+    void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,6 +46,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (isInRange)
         {
+            audioManager.PlaySFX(audioManager.interact);
             // Lakukan tindakan berdasarkan interactionType
             switch (interactionType)
             {
@@ -54,6 +60,7 @@ public class InteractableObject : MonoBehaviour
                 case InteractionType.LiftButton:
                     // Lakukan tindakan mengambil objek
                     GameManagerMap1.isElectricityOn();
+                    LiftReady();
                     break;
                 // Tambahkan tindakan lain sesuai kebutuhan
                 default:
@@ -72,6 +79,13 @@ public class InteractableObject : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E)){
             Interact();
+        }
+    }
+    public void LiftReady(){
+        Debug.Log("pencet");
+        if(GameManagerMap1.clickedLiftButton){
+        audioManager.PlaySFX(audioManager.FinishLift);
+        Debug.Log("play");
         }
     }
 }

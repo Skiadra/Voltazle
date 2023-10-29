@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private LayerMask boxes;
 
+    AudioManager audioManager;
+
     //SaveLoadSystem
     // private bool saveLoadSystem = false;
 
@@ -98,6 +100,8 @@ public class Movement : MonoBehaviour
         {
             move = this;
         }
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnEnable()
@@ -257,6 +261,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpTimeCounter = 0;
+            audioManager.PlaySFX(audioManager.jump);
 
         }
 
