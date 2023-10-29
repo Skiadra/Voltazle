@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PuzzleHead : MonoBehaviour
@@ -19,13 +20,13 @@ public class PuzzleHead : MonoBehaviour
         escape = GameObject.FindGameObjectWithTag("Escape");
     }
 
+    public void Esx(){
+        Destroy(gameObject.transform.parent.gameObject);
+            return;
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Destroy(gameObject.transform.parent.gameObject);
-            return;
-        }
+        
     }
 
     void FixedUpdate()
