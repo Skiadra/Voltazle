@@ -20,7 +20,7 @@ public class InteractableObject2 : MonoBehaviour
 
     public InteractionType interactionType = InteractionType.None;
     private bool isInRange = false;
-
+    AudioManager audioManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,6 +45,7 @@ public class InteractableObject2 : MonoBehaviour
     {
         if (isInRange)
         {
+            audioManager.PlaySFX(audioManager.interact);
             // Lakukan tindakan berdasarkan interactionType
             switch (interactionType)
             {
@@ -86,5 +87,9 @@ public class InteractableObject2 : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             Interact();
         }
+    }
+
+    void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

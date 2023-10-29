@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Escape : MonoBehaviour
 {
     public SpriteRenderer sprite;
+    
 
     private void Update() {
         sprite.color = Color.black;
