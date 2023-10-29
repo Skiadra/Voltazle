@@ -6,7 +6,8 @@ public class LaserTrap : MonoBehaviour
 {
     public GameObject laserPrefab;
     public float spawnInterval = 5f;
-    AudioManager audioManager;
+    // AudioManager audioManager;
+    [SerializeField] private AudioSource laserSFX;
 
     private IEnumerator SpawnLaserRepeatedly()
     {
@@ -14,7 +15,8 @@ public class LaserTrap : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
             Instantiate(laserPrefab, transform.position, Quaternion.identity);
-            audioManager.PlaySFX(audioManager.lasershoot);
+            // audioManager.PlaySFX(audioManager.lasershoot);
+            laserSFX.Play();
         }
     }
 
@@ -22,7 +24,7 @@ public class LaserTrap : MonoBehaviour
         StartCoroutine(SpawnLaserRepeatedly());
     }
 
-    void Awake(){
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+    // void Awake(){
+    //     audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    // }
 }
