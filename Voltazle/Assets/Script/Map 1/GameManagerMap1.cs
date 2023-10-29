@@ -28,6 +28,7 @@ public class GameManagerMap1 : MonoBehaviour
             instance.StartCoroutine(infoFloating(instance.info[0]));
             instance.info[7].SetActive(true);
             Debug.Log("Fuse Terpasang");
+            instance.info[11].SetActive(false);
         }else if(fuse < 1){
             Debug.Log("no fuse");
             instance.StartCoroutine(infoFloating(instance.info[1]));
