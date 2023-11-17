@@ -6,6 +6,14 @@ public class MainMenu : MonoBehaviour
 {
     
     // Update is called once per frame
+
+    void Start(){
+        GameManagerMap1.fuse = 0;
+        GameManagerMap1.fuseBox = false;
+        GameManagerMap1.fuseButton = false;
+        GameManagerMap1.clickedLiftButton = false;
+        Tutorial.pressLift = false;
+    }
     void Update()
     {
     
