@@ -13,11 +13,15 @@ public class Tutorial : MonoBehaviour
     public static bool afterPressLift = false;
     public static bool afterPressFuseButton = false;
     public static bool afterPressFuseBox = false;
-    int x = 0;
+    public static bool isTutorialPlayed = false;
+    public static int x = 0;
     void Start()
     {
-        StartCoroutine(tutor(tutorialObj[0]));
-        StartCoroutine(tutorArrow(tutorialObj[1]));
+        if(!isTutorialPlayed){
+            StartCoroutine(tutor(tutorialObj[0]));
+            StartCoroutine(tutorArrow(tutorialObj[1]));
+            isTutorialPlayed = true;
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +34,10 @@ public class Tutorial : MonoBehaviour
                 tutorialObj[3].SetActive(false);
                 x++;
             }
+        }
+
+        if(isTutorialPlayed){
+            tutorialObj[3].SetActive(false);
         }
 
     }
