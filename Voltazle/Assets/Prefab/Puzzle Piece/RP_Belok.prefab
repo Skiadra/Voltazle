@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7802569463707739641, guid: 98c67be399c8daf458d7a96acf546b58, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
     - target: {fileID: 7833247934100363470, guid: 98c67be399c8daf458d7a96acf546b58, type: 3}
       propertyPath: m_Sprite
       value: 
