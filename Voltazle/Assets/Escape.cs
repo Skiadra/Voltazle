@@ -15,7 +15,7 @@ public class Escape : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
-             SceneManager.LoadSceneAsync(0);
+             SceneManager.LoadSceneAsync(3);
         }
     }
 }

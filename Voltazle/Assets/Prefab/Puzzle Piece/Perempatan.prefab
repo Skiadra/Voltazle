@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  entered: 0
 --- !u!1 &2965450694764172828
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1469290523
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 26510f22d2ada494f83bf07507367533, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -270,7 +271,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -315,7 +316,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -360,7 +361,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -407,6 +408,7 @@ MonoBehaviour:
   - {fileID: 7556100104060285162}
   - {fileID: 2946754984456389505}
   - {fileID: 8372250084301335608}
+  connections: []
   on: 0
 --- !u!1 &3209998599710858080
 GameObject:
@@ -764,6 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  entered: 0
 --- !u!1 &7556100104060285162
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,6 +901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  entered: 0
 --- !u!1 &8372250084301335608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,3 +1036,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
+  entered: 0
